@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="container">
+
+    <center><h1>Registration form</h1></center>
+    <center>
+    <form action="@{/register}" method="post" th:object="${user}">
+    <div class="mb-3">
+        <input type="text" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="Email...">
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password...">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </center>
+</div>
+</body>
+</html>

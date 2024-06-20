@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        h1 {
+            margin: 50px;
+        }
+
+        form {
+            width: 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+<div th:insert="fragments/navbar :: navbar"></div>
+
+<div class="flex-grow container mx-auto py-8 container mx-auto py-8">
+    <center><h1 class="text-3xl font-bold mb-8">Add New User</h1></center>
+    <center>
+        <form th:action="@{/register}" method="post" th:object="${user}" class="w-1/2 bg-white p-8 rounded shadow-md">
+            <div class="mb-4">
+                <input type="text" id="name" th:field="*{name}" placeholder="Name..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <input type="text" id="age" name="age" th:field="*{age}" placeholder="Age..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <input type="text" id="email" name="email" th:field="*{email}" placeholder="Email..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <input type="password" id="password" name="password" th:field="*{password}" placeholder="Password..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Submit</button>
+        </form>
+    </center>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
